@@ -7,6 +7,7 @@ package lendle.courses.wp.dialogsample;
 
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -42,6 +43,16 @@ public class ShowInternalMessageDialogSample extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jMenuBar1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jMenuBar1AncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+
         jMenu1.setText("Actions");
 
         jMenuItem1.setText("ShowMessageDialog");
@@ -73,8 +84,14 @@ public class ShowInternalMessageDialogSample extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
         //show internal message dialog
+        JOptionPane.showInternalMessageDialog(getContentPane(), "test"); //不能離開視窗
+        //JOptionPane.showMessageDialog(getContentPane(), "test"); //可以離開視窗
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuBar1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jMenuBar1AncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuBar1AncestorAdded
+    //按錯
     /**
      * @param args the command line arguments
      */
